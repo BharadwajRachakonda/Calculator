@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="css.css">
+<center>
+<span>
+    <div id="out_in" name="'div"></div>
+    <button id="n1" onclick="func('n1')">1</button>
+    <button id="n2" onclick="func('n2')">2</button>
+    <button id="n3" onclick="func('n3')">3</button>
+    <button id="n4" onclick="func('n4')">4</button>
+    <button id="n5" onclick="func('n5')">5</button>
+    <button id="n6" onclick="func('n6')">6</button>
+    <button id="n7" onclick="func('n7')">7</button>
+    <button id="n8" onclick="func('n8')">8</button>
+    <button id="n9" onclick="func('n9')">9</button>
+    <button id="n0" onclick="func('n0')">0</button>
+    <button id="eq" onclick="func('eq')">=</button>
+    <button id="cancel" onclick="func('cancel')">cancel</button>
+    <button id="add" onclick="func('add')">+</button>
+    <button id="sub" onclick="func('sub')">-</button>
+    <button id="div" onclick="func('div')">/</button>
+    <button id="mult" onclick="func('mult')">*</button>
+</span>
+</center>
+<script>
+    s=''
+    function func(a){
+        e=document.getElementById(a)
+        x=e.textContent
+        a=document.getElementById('out_in')
+        if ('1234567890/-+*'.includes(x)){
+            s+=x
+            a.innerHTML=s
+        }
+        else{
+            if (x=='='){
+                a.innerHTML=eval(s)
+                s=''
+            }
+            else if (x=='cancel'){
+                s=s.substring(0,s.length - 1);
+                console.log(s)
+                a.innerHTML=s
+            }
+        }
+    }
+</script>
